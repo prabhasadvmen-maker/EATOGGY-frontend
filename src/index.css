@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-primary-orange: #FF6B35;
+  --color-fresh-green: #2E7D32;
+  --color-charcoal-black: #1F2937;
+  --color-warm-white: #FFF8F2;
+  --color-accent-gold: #F4B400;
+
+  --font-poppins: 'Poppins', sans-serif;
+  --font-manrope: 'Manrope', sans-serif;
+  --font-inter: 'Inter', sans-serif;
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-float-delayed: float-delayed 8s ease-in-out infinite;
+  --animate-steam: steam 4s ease-in-out infinite;
+  --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-spin-slow: spin 20s linear infinite;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(5deg); }
+  }
+  @keyframes float-delayed {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(-5deg); }
+  }
+  @keyframes steam {
+    0% { transform: translateY(0) scaleX(1) scaleY(1); opacity: 0; }
+    15% { opacity: 0.6; }
+    50% { transform: translateY(-40px) scaleX(1.2) scaleY(1.1); opacity: 0.3; }
+    100% { transform: translateY(-80px) scaleX(1.5) scaleY(1.2); opacity: 0; }
+  }
+}
+
+/* Custom styles for claymorphism and glassmorphism */
+.clay-card {
+  background: white;
+  border-radius: 1.5rem;
+  box-shadow: 
+    0px 10px 25px -3px rgba(0, 0, 0, 0.05),
+    inset 0 -8px 12px rgba(0, 0, 0, 0.04),
+    inset 0 8px 12px rgba(255, 255, 255, 0.9),
+    0px 4px 12px -2px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.clay-card-green {
+  background: #E8F5E9;
+  border-radius: 1.5rem;
+  box-shadow: 
+    0px 10px 25px -3px rgba(46, 125, 50, 0.1),
+    inset 0 -8px 12px rgba(46, 125, 50, 0.08),
+    inset 0 8px 12px rgba(255, 255, 255, 0.9),
+    0px 4px 12px -2px rgba(46, 125, 50, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+.clay-card-orange {
+  background: #FFF3E0;
+  border-radius: 1.5rem;
+  box-shadow: 
+    0px 10px 25px -3px rgba(255, 107, 53, 0.1),
+    inset 0 -8px 12px rgba(255, 107, 53, 0.08),
+    inset 0 8px 12px rgba(255, 255, 255, 0.9),
+    0px 4px 12px -2px rgba(255, 107, 53, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.glass-panel-dark {
+  background: rgba(31, 41, 55, 0.55);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel-light {
+  background: rgba(255, 248, 242, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 107, 53, 0.15);
+}
+
+/* Neomorphism UI Utilities */
+.neom-card-light {
+  background: #FFF8F2; /* warm-white */
+  border-radius: 1.5rem;
+  box-shadow: 
+    6px 6px 16px rgba(215, 205, 195, 0.8), 
+    -6px -6px 16px rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.neom-card-light-inset {
+  background: #FFF8F2; /* warm-white */
+  border-radius: 1.5rem;
+  box-shadow: 
+    inset 4px 4px 10px rgba(215, 205, 195, 0.8), 
+    inset -4px -4px 10px rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Force browser autofill fields to respect the neomorphic warm-white theme color */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 
+    0 0 0 100px #FFF8F2 inset,
+    inset 4px 4px 10px rgba(215, 205, 195, 0.8), 
+    inset -4px -4px 10px rgba(255, 255, 255, 0.95) !important;
+  -webkit-text-fill-color: #1F2937 !important;
+  caret-color: #FF6B35;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.neom-card-dark {
+  background: #1F2937; /* charcoal-black */
+  border-radius: 1.5rem;
+  box-shadow: 
+    8px 8px 20px rgba(10, 15, 24, 0.6), 
+    -8px -8px 20px rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.neom-card-dark-inset {
+  background: #1F2937; /* charcoal-black */
+  border-radius: 1.5rem;
+  box-shadow: 
+    inset 6px 6px 12px rgba(10, 15, 24, 0.7), 
+    inset -6px -6px 12px rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.02);
+}
+
+.neom-card-orange {
+  background: #FF6B35; /* primary-orange */
+  border-radius: 1.5rem;
+  box-shadow: 
+    6px 6px 16px rgba(210, 75, 25, 0.55), 
+    -6px -6px 16px rgba(255, 142, 97, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.neom-card-green {
+  background: #2E7D32; /* fresh-green */
+  border-radius: 1.5rem;
+  box-shadow: 
+    6px 6px 16px rgba(25, 70, 28, 0.55), 
+    -6px -6px 16px rgba(60, 160, 65, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #FFF8F2;
+}
+::-webkit-scrollbar-thumb {
+  background: #FF6B35;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #e05621;
+}
+
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overflow: clip;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
