@@ -87,14 +87,14 @@ export default function TiffinCanvas() {
     <Canvas
       camera={{ position: [0, 0, 7.0], fov: 45 }}
       gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }}
-      dpr={[1, 2]}
+      dpr={Math.min(window.devicePixelRatio, 1.5)}
+      frameloop="always"
       style={{ background: 'transparent', width: '100%', height: '100%' }}
     >
-      <ambientLight intensity={0.6} />
-      <directionalLight position={[5, 10, 5]} intensity={2.0} />
-      <directionalLight position={[-5, -5, -5]} intensity={0.5} color="#FF6B35" />
-      <pointLight position={[0, 5, 3]} intensity={1.5} color="#FFF8F2" />
-      <spotLight position={[0, 10, 0]} intensity={1.0} angle={0.4} penumbra={1} color="#FF6B35" />
+      <ambientLight intensity={0.7} />
+      <directionalLight position={[5, 10, 5]} intensity={1.8} />
+      <directionalLight position={[-5, -5, -5]} intensity={0.4} color="#FF6B35" />
+      <pointLight position={[0, 5, 3]} intensity={1.2} color="#FFF8F2" />
       <TiffinModel />
       <OrbitControls
         enableZoom={false}

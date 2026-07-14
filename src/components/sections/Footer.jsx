@@ -1,31 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaInstagram, FaFacebook, FaTwitter, FaYoutube, FaWhatsapp } from 'react-icons/fa';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { IoShieldCheckmark, IoLeaf, IoLockClosed, IoCard } from 'react-icons/io5';
 import Button from '../ui/Button';
 import Badge from '../ui/Badge';
 
 export default function Footer() {
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
-
-  // FIX 1 & 4 - Scroll Trigger Initialization & Synchronization
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    
-    ScrollTrigger.scrollerProxy(document.body, {
-      scrollTop(value) {
-        if (arguments.length) window.lenis?.scrollTo(value);
-        return window.scrollY;
-      },
-      getBoundingClientRect() {
-        return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
-      }
-    });
-
-    ScrollTrigger.refresh();
-  }, []);
 
   const handleSubscribe = (e) => {
     e.preventDefault();
@@ -230,6 +212,30 @@ export default function Footer() {
 
         {/* Divider */}
         <div className="h-px bg-white/5 w-full my-8" />
+
+        {/* Trust Badges Row */}
+        <div className="flex flex-wrap items-center justify-center gap-4 py-6 border-b border-white/5">
+          <div className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-xs font-poppins font-bold text-gray-300">
+            <IoShieldCheckmark className="text-fresh-green text-base" />
+            FSSAI Certified
+          </div>
+          <div className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-xs font-poppins font-bold text-gray-300">
+            <IoLeaf className="text-fresh-green text-base" />
+            100% Hygienic Kitchen
+          </div>
+          <div className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-xs font-poppins font-bold text-gray-300">
+            <IoLockClosed className="text-accent-gold text-base" />
+            Secure Payments
+          </div>
+          <div className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-xs font-poppins font-bold text-gray-300">
+            <IoCard className="text-primary-orange text-base" />
+            UPI · Cards · Wallets
+          </div>
+          <div className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-xs font-poppins font-bold text-gray-300">
+            <span className="text-base">🔒</span>
+            SSL Secured
+          </div>
+        </div>
 
         {/* Bottom copyright bar */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-gray-500 font-manrope">

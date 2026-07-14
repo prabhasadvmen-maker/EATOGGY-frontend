@@ -116,25 +116,29 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Menu Panel */}
-      <AnimatePresence>
+      <AnimatePresence initial={false}>
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="lg:hidden bg-charcoal-black/95 backdrop-blur-md border-b border-white/10 w-full left-0 overflow-hidden"
+            key="mobile-menu"
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.2, ease: 'easeOut' }}
+            className="lg:hidden bg-charcoal-black/95 backdrop-blur-md border-b border-white/10 w-full left-0"
           >
             <div className="px-6 py-8 flex flex-col gap-6">
-              {navLinks.map((link) => (
-                <a
+              {navLinks.map((link, i) => (
+                <motion.a
                   key={link.name}
                   href={link.href}
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.04, duration: 0.2 }}
                   onClick={(e) => handleScrollTo(e, link.href)}
                   className="font-manrope font-semibold text-lg text-gray-200 hover:text-primary-orange transition-colors duration-200"
                 >
                   {link.name}
-                </a>
+                </motion.a>
               ))}
               <div className="h-px bg-white/10 my-2" />
               <div className="flex flex-col gap-4">

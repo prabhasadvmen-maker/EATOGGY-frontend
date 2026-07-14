@@ -55,17 +55,6 @@ export default function FAQ() {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     
-    // Lenis Scroller Proxy Setup
-    ScrollTrigger.scrollerProxy(document.body, {
-      scrollTop(value) {
-        if (arguments.length) window.lenis?.scrollTo(value);
-        return window.scrollY;
-      },
-      getBoundingClientRect() {
-        return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
-      }
-    });
-
     // Stagger FAQ items in from right on scroll entrance
     faqRefs.current.forEach((el, index) => {
       if (!el) return;

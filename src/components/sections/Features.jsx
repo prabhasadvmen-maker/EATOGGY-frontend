@@ -66,20 +66,9 @@ export default function Features() {
     },
   ];
 
-  // FIX 1 & 4 - Scroll Trigger Initialization & Synchronization
+  // ScrollTrigger is already synced globally via useLenis — no proxy needed here
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
-    
-    ScrollTrigger.scrollerProxy(document.body, {
-      scrollTop(value) {
-        if (arguments.length) window.lenis?.scrollTo(value);
-        return window.scrollY;
-      },
-      getBoundingClientRect() {
-        return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
-      }
-    });
-
     ScrollTrigger.refresh();
   }, []);
 

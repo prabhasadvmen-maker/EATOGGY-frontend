@@ -18,24 +18,6 @@ export default function DeliveryAreas() {
     { name: 'Faridabad', time: 'By 1:00 PM', charge: 'Free above ₹500' }
   ];
 
-  // FIX 1 & 4 - Scroll Trigger Initialization & Synchronization
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    
-    // Lenis Scroller Proxy Setup
-    ScrollTrigger.scrollerProxy(document.body, {
-      scrollTop(value) {
-        if (arguments.length) window.lenis?.scrollTo(value);
-        return window.scrollY;
-      },
-      getBoundingClientRect() {
-        return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
-      }
-    });
-
-    ScrollTrigger.refresh();
-  }, []);
-
   const containerVariants = {
     hidden: {},
     visible: {

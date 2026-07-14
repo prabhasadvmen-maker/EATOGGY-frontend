@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { IoSparkles } from 'react-icons/io5';
+import { IoSparkles, IoShieldCheckmark } from 'react-icons/io5';
 import Button from '../ui/Button';
 import Badge from '../ui/Badge';
 
@@ -94,10 +94,13 @@ export default function Hero() {
           muted
           loop
           playsInline
-          className="w-full h-full object-cover"
+          preload="none"
+          className="w-full h-full object-cover hidden sm:block"
         >
-          <source src="/Hero section vedio.mp4" type="video/mp4" />
+          <source src="/Hero%20section%20vedio.mp4" type="video/mp4" />
         </video>
+        {/* Mobile fallback — solid dark bg instead of heavy video */}
+        <div className="sm:hidden absolute inset-0 bg-charcoal-black" />
       </div>
 
       {/* Dark overlay - left heavy for text readability */}
@@ -166,6 +169,24 @@ export default function Hero() {
           >
             Healthy, hygienic and affordable tiffin subscriptions. Cooked fresh daily & delivered straight to your doorstep across Delhi NCR.
           </motion.p>
+
+          {/* Trust Badges */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="flex flex-wrap gap-3 mb-10"
+          >
+            <span className="flex items-center gap-1.5 bg-white/5 border border-white/10 rounded-full px-3 py-1.5 text-[11px] font-poppins font-bold text-gray-300">
+              <IoShieldCheckmark className="text-fresh-green" /> FSSAI Certified
+            </span>
+            <span className="flex items-center gap-1.5 bg-white/5 border border-white/10 rounded-full px-3 py-1.5 text-[11px] font-poppins font-bold text-gray-300">
+              🔒 Secure Payments
+            </span>
+            <span className="flex items-center gap-1.5 bg-white/5 border border-white/10 rounded-full px-3 py-1.5 text-[11px] font-poppins font-bold text-gray-300">
+              ⏰ Delivery by 1 PM
+            </span>
+          </motion.div>
 
           {/* CTAs */}
           <motion.div

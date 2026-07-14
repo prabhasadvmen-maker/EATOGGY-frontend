@@ -23,23 +23,6 @@ export default function Testimonials() {
     return () => window.removeEventListener('resize', checkMediaQuery);
   }, []);
 
-  // FIX 1 & 4 - Scroll Trigger Initialization & Synchronization
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    
-    ScrollTrigger.scrollerProxy(document.body, {
-      scrollTop(value) {
-        if (arguments.length) window.lenis?.scrollTo(value);
-        return window.scrollY;
-      },
-      getBoundingClientRect() {
-        return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
-      }
-    });
-
-    ScrollTrigger.refresh();
-  }, []);
-
   // Auto sliding every 3.5 seconds
   useEffect(() => {
     if (isHovered) return;

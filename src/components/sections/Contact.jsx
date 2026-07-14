@@ -80,23 +80,6 @@ export default function Contact() {
   const [formData, setFormData] = useState({ name: '', phone: '', email: '', message: '' });
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  // FIX 1 & 4 - Scroll Trigger Initialization & Synchronization
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    
-    ScrollTrigger.scrollerProxy(document.body, {
-      scrollTop(value) {
-        if (arguments.length) window.lenis?.scrollTo(value);
-        return window.scrollY;
-      },
-      getBoundingClientRect() {
-        return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
-      }
-    });
-
-    ScrollTrigger.refresh();
-  }, []);
-
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!formData.name || !formData.phone || !formData.email) return;

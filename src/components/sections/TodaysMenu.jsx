@@ -182,23 +182,6 @@ export default function TodaysMenu() {
   const [mealCategory, setMealCategory] = useState('lunch'); // 'breakfast', 'lunch', 'dinner'
   const [dietFilter, setDietFilter] = useState('veg'); // 'veg', 'nonveg'
 
-  // FIX 1 & 4 - Scroll Trigger Initialization & Synchronization
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    
-    ScrollTrigger.scrollerProxy(document.body, {
-      scrollTop(value) {
-        if (arguments.length) window.lenis?.scrollTo(value);
-        return window.scrollY;
-      },
-      getBoundingClientRect() {
-        return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
-      }
-    });
-
-    ScrollTrigger.refresh();
-  }, []);
-
   const allItems = menuData[mealCategory] || [];
   const filteredItems = allItems.filter(item => item.category === dietFilter);
 

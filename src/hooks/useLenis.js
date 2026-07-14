@@ -8,32 +8,22 @@ gsap.registerPlugin(ScrollTrigger);
 export default function useLenis() {
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.2,
+      duration: 1.0,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      direction: 'vertical',
-      gestureDirection: 'vertical',
-      smooth: true,
-      mouseMultiplier: 1.0,
       smoothTouch: false,
-      touchMultiplier: 2.0,
+      touchMultiplier: 1.5,
       infinite: false,
     });
 
-    let frameId;
+    // Single source of truth: sync Lenis with GSAP ScrollTrigger
+    lenis.on('scroll', ScrollTrigger.update);
 
-    function raf(time) {
-      lenis.raf(time);
-      frameId = requestAnimationFrame(raf);
-    }
-
-    frameId = requestAnimationFrame(raf);
-
-    // Synchronize Lenis scroll ticks with GSAP ScrollTrigger updates
-    lenis.on('scroll', () => {
-      ScrollTrigger.update();
+    gsap.ticker.add((time) => {
+      lenis.raf(time * 1000);
     });
+    gsap.ticker.lagSmoothing(0);
 
-    // Set up global scroller proxy for ScrollTrigger (runs once for the whole window)
+    // Set up global scroller proxy ONCE here only
     ScrollTrigger.scrollerProxy(document.body, {
       scrollTop(value) {
         if (arguments.length) lenis.scrollTo(value);
@@ -44,16 +34,14 @@ export default function useLenis() {
       }
     });
 
-    // Make lenis globally accessible for link scrolling
     window.lenis = lenis;
 
-    // Refresh ScrollTriggers when window sizes or layouts shift
     const handleResize = () => ScrollTrigger.refresh();
-    window.addEventListener('resize', handleResize);
+    window.addEventListener('resize', handleResize, { passive: true });
 
     return () => {
-      cancelAnimationFrame(frameId);
       window.removeEventListener('resize', handleResize);
+      gsap.ticker.remove(lenis.raf);
       lenis.destroy();
       window.lenis = null;
     };

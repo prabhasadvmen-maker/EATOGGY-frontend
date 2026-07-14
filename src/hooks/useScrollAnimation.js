@@ -9,16 +9,7 @@ export default function useScrollAnimation(ref, options = {}) {
 
     gsap.registerPlugin(ScrollTrigger);
 
-    // Sync ScrollTrigger with Lenis smooth scroll
-    ScrollTrigger.scrollerProxy(document.body, {
-      scrollTop(value) {
-        if (arguments.length) window.lenis?.scrollTo(value);
-        return window.scrollY;
-      },
-      getBoundingClientRect() {
-        return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
-      }
-    });
+    // DO NOT re-register scrollerProxy here — useLenis handles it globally
 
     const delay = options.delay ?? 0;
     const duration = options.duration ?? 0.8;
@@ -45,10 +36,6 @@ export default function useScrollAnimation(ref, options = {}) {
       );
     }, element);
 
-    ScrollTrigger.refresh();
-
-    return () => {
-      ctx.revert();
-    };
-  }, [ref, options]);
+    return () => ctx.revert();
+  }, [ref]);
 }
