@@ -238,7 +238,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom copyright bar */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-gray-500 font-manrope">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-500 font-manrope pt-6">
           <div>
             Copyright © 2026 Eatoggy Private Limited. All rights reserved.
           </div>
@@ -247,6 +247,19 @@ export default function Footer() {
             <a href="#terms" className="hover:text-gray-300 transition-colors">Terms</a>
             <a href="#refund" className="hover:text-gray-300 transition-colors">Refund Policy</a>
           </div>
+        </div>
+
+        {/* Developer Credit */}
+        <div className="mt-4 pt-4 border-t border-white/5 text-center text-[11px] text-gray-600 font-manrope">
+          Designed & Developed by{' '}
+          <a
+            href="https://advmen.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-primary-orange hover:text-orange-400 font-bold transition-colors"
+          >
+            Advmen Technology Pvt. Ltd.
+          </a>
         </div>
 
       </div>
