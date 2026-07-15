@@ -13,7 +13,6 @@ export default function Testimonials() {
   const [isHovered, setIsHovered] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
 
-  // Handle media queries in React
   useEffect(() => {
     const checkMediaQuery = () => {
       setIsDesktop(window.innerWidth >= 1024);
@@ -23,7 +22,6 @@ export default function Testimonials() {
     return () => window.removeEventListener('resize', checkMediaQuery);
   }, []);
 
-  // Auto sliding every 3.5 seconds
   useEffect(() => {
     if (isHovered) return;
     const interval = setInterval(() => {
@@ -35,10 +33,8 @@ export default function Testimonials() {
   const handleDragEnd = (event, info) => {
     const swipeThreshold = 50;
     if (info.offset.x < -swipeThreshold) {
-      // Swipe left -> Next
       setActiveIndex((prev) => (prev + 1) % testimonialsData.length);
     } else if (info.offset.x > swipeThreshold) {
-      // Swipe right -> Previous
       setActiveIndex((prev) => (prev - 1 + testimonialsData.length) % testimonialsData.length);
     }
   };
@@ -58,11 +54,10 @@ export default function Testimonials() {
   return (
     <section 
       id="reviews" 
-      className="py-24 bg-warm-white relative overflow-hidden"
+      className="py-24 bg-[#0E0E0E] relative overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         
-        {/* Section Title */}
         <SectionTitle 
           title="What Our Customers"
           highlightText="Are Saying"
@@ -70,21 +65,19 @@ export default function Testimonials() {
           center={true}
         />
 
-        {/* Google Rating Badge (Neomorphic) */}
         <div className="flex justify-center mb-12">
           <Badge 
             variant="dark" 
-            className="bg-charcoal-black text-white flex items-center gap-3 px-6 py-3.5 rounded-2xl border border-white/5 shadow-xl"
+            className="bg-[#1A1A1A] text-white flex items-center gap-3 px-6 py-3.5 rounded-2xl border border-luxury-gold/15 shadow-xl"
           >
             <FaGoogle className="text-red-500 text-lg" />
             <div className="text-left font-poppins">
-              <span className="font-extrabold text-sm block leading-tight text-accent-gold">4.9★ on Google</span>
+              <span className="font-extrabold text-sm block leading-tight text-luxury-gold">4.9★ on Google</span>
               <span className="text-[10px] text-gray-400 block uppercase tracking-wider font-semibold">Trustpilot & Google Verified</span>
             </div>
           </Badge>
         </div>
 
-        {/* Draggable Slider Container */}
         <div 
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
@@ -109,34 +102,30 @@ export default function Testimonials() {
                   <motion.div
                     key={test.id}
                     whileHover={{ scale: 1.03, y: -6, transition: { type: "spring", stiffness: 300, damping: 20 } }}
-                    className="neom-card-light h-72 border border-white/60 p-8 flex flex-col justify-between transition-all duration-300"
+                    className="neom-card-light h-72 border border-luxury-gold/15 p-8 flex flex-col justify-between transition-all duration-300 bg-[#1A1A1A]"
                   >
                     <div>
-                      {/* Rating Stars */}
-                      <div className="flex gap-1 text-primary-orange mb-4">
+                      <div className="flex gap-1 text-luxury-gold mb-4">
                         {[...Array(5)].map((_, i) => (
                           <IoStarSharp 
                             key={i} 
-                            className={i < test.rating ? 'text-primary-orange' : 'text-gray-300'} 
+                            className={i < test.rating ? 'text-luxury-gold' : 'text-gray-600'} 
                           />
                         ))}
                       </div>
 
-                      {/* Review text */}
-                      <p className="font-manrope text-sm text-gray-700 italic leading-relaxed line-clamp-4">
+                      <p className="font-manrope text-sm text-gray-300 italic leading-relaxed line-clamp-4">
                         "{test.review}"
                       </p>
                     </div>
 
-                    {/* Reviewer Details */}
-                    <div className="flex items-center gap-4 border-t border-gray-100 pt-4 mt-4">
-                      {/* Character Initials inside inset Neomorphic circle */}
-                      <div className="w-12 h-12 rounded-full neom-card-light-inset flex items-center justify-center font-poppins font-extrabold text-primary-orange text-lg shadow-inner shrink-0 border border-white/20">
+                    <div className="flex items-center gap-4 border-t border-luxury-gold/10 pt-4 mt-4">
+                      <div className="w-12 h-12 rounded-full neom-card-light-inset flex items-center justify-center font-poppins font-extrabold text-luxury-gold text-lg shadow-inner shrink-0 border border-luxury-gold/15 bg-[#121212]">
                         {test.name[0]}
                       </div>
 
                       <div className="text-left truncate">
-                        <h4 className="font-poppins font-extrabold text-sm text-charcoal-black truncate">
+                        <h4 className="font-poppins font-extrabold text-sm text-champagne truncate">
                           {test.name}
                         </h4>
                         <span className="text-[10px] text-gray-500 font-manrope font-bold uppercase tracking-wider block">
@@ -151,14 +140,13 @@ export default function Testimonials() {
           </motion.div>
         </div>
 
-        {/* Bullet pagination dots */}
         <div className="flex justify-center gap-3 mt-8">
           {testimonialsData.map((_, idx) => (
             <button
               key={idx}
               onClick={() => setActiveIndex(idx)}
               className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
-                activeIndex === idx ? 'w-8 bg-primary-orange shadow-md' : 'w-2.5 bg-gray-300 hover:bg-gray-400'
+                activeIndex === idx ? 'w-8 bg-luxury-gold shadow-md shadow-luxury-gold/30' : 'w-2.5 bg-gray-600 hover:bg-gray-500'
               }`}
               aria-label={`Go to slide ${idx + 1}`}
             />

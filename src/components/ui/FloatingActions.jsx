@@ -144,9 +144,9 @@ export default function FloatingActions() {
             exit={{ opacity: 0, scale: 0.8, x: -20 }}
             whileHover={{ scale: 1.05, y: -2 }}
             onClick={() => setIsChatOpen(true)}
-            className="fixed bottom-6 left-6 z-40 bg-primary-orange hover:bg-orange-600 text-white px-5 py-3.5 rounded-full border border-white/20 shadow-xl flex items-center gap-2.5 cursor-pointer transition-all duration-300 font-poppins font-extrabold text-xs uppercase tracking-wider"
+            className="fixed bottom-6 left-6 z-40 bg-luxury-gold hover:bg-champagne text-charcoal-black px-5 py-3.5 rounded-full border border-white/20 shadow-xl flex items-center gap-2.5 cursor-pointer transition-all duration-300 font-poppins font-extrabold text-xs uppercase tracking-wider"
           >
-            <IoChatbubbleEllipsesOutline className="text-lg text-white animate-pulse" />
+            <IoChatbubbleEllipsesOutline className="text-lg text-charcoal-black animate-pulse" />
             <span>Let's Talk</span>
           </motion.button>
         ) : (
@@ -173,20 +173,20 @@ export default function FloatingActions() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 40, scale: 0.95 }}
             transition={{ type: 'spring', damping: 20, stiffness: 250 }}
-            className="fixed bottom-24 left-6 z-50 w-[340px] md:w-[380px] h-[400px] bg-charcoal-black border border-white/10 rounded-3xl shadow-2xl overflow-hidden flex flex-col justify-between p-5 text-left"
+            className="fixed bottom-24 left-6 z-50 w-[340px] md:w-[380px] h-[400px] bg-[#1A1A1A] border border-luxury-gold/15 rounded-3xl shadow-2xl overflow-hidden flex flex-col justify-between p-5 text-left"
           >
             {/* Header */}
-            <div className="flex items-center justify-between pb-3 border-b border-white/5">
+            <div className="flex items-center justify-between pb-3 border-b border-luxury-gold/10">
               <div className="flex items-center gap-3">
-                <IoChatbubbleEllipsesOutline className="text-2xl text-primary-orange shrink-0" />
+                <IoChatbubbleEllipsesOutline className="text-2xl text-luxury-gold shrink-0" />
                 <div>
-                  <h4 className="font-poppins font-extrabold text-sm text-white leading-tight">Let's Talk</h4>
+                  <h4 className="font-poppins font-extrabold text-sm text-champagne leading-tight">Let's Talk</h4>
                   <span className="text-[10px] text-gray-400 font-manrope font-bold block mt-0.5">Eatoggy AI Support</span>
                 </div>
               </div>
               <button 
                 onClick={() => setIsChatOpen(false)}
-                className="w-8 h-8 rounded-full hover:bg-white/10 flex items-center justify-center text-xl text-white cursor-pointer transition-colors border-none"
+                className="w-8 h-8 rounded-full hover:bg-luxury-gold/10 flex items-center justify-center text-xl text-champagne cursor-pointer transition-colors border-none"
               >
                 <IoClose />
               </button>
@@ -204,8 +204,8 @@ export default function FloatingActions() {
                     <div 
                       className={`max-w-[85%] rounded-2xl p-3.5 text-xs md:text-sm font-manrope leading-relaxed ${
                         isUser 
-                          ? 'bg-primary-orange text-white rounded-br-none shadow-md' 
-                          : 'bg-white/5 border border-white/10 text-white rounded-bl-none'
+                          ? 'bg-luxury-gold text-charcoal-black rounded-br-none shadow-md' 
+                          : 'bg-luxury-gold/10 border border-luxury-gold/15 text-champagne rounded-bl-none'
                       }`}
                     >
                       {msg.content}
@@ -215,10 +215,10 @@ export default function FloatingActions() {
               })}
               {isGenerating && (
                 <div className="flex justify-start">
-                  <div className="bg-white/5 border border-white/10 rounded-2xl rounded-bl-none p-3.5 text-xs text-gray-400 font-manrope flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary-orange animate-bounce [animation-delay:-0.3s]" />
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary-orange animate-bounce [animation-delay:-0.15s]" />
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary-orange animate-bounce" />
+                  <div className="bg-luxury-gold/10 border border-luxury-gold/15 rounded-2xl rounded-bl-none p-3.5 text-xs text-gray-400 font-manrope flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-luxury-gold animate-bounce [animation-delay:-0.3s]" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-luxury-gold animate-bounce [animation-delay:-0.15s]" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-luxury-gold animate-bounce" />
                   </div>
                 </div>
               )}
@@ -228,7 +228,7 @@ export default function FloatingActions() {
             {/* Chat Input form */}
             <form 
               onSubmit={handleSendChat}
-              className="flex items-center gap-3 pt-3 border-t border-white/5 bg-charcoal-black"
+              className="flex items-center gap-3 pt-3 border-t border-luxury-gold/10 bg-[#1A1A1A]"
             >
               <input
                 type="text"
@@ -236,12 +236,12 @@ export default function FloatingActions() {
                 placeholder="Type message..."
                 value={chatInput}
                 onChange={(e) => setChatInput(e.target.value)}
-                className="flex-grow bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-xs md:text-sm font-manrope text-white outline-none focus:border-primary-orange transition-colors"
+                className="flex-grow bg-luxury-gold/10 border border-luxury-gold/15 rounded-xl px-4 py-2.5 text-xs md:text-sm font-manrope text-champagne outline-none focus:border-luxury-gold transition-colors placeholder-gray-600"
               />
               <button
                 type="submit"
                 disabled={isGenerating || !chatInput.trim()}
-                className="w-10 h-10 rounded-xl bg-primary-orange hover:bg-orange-600 disabled:bg-gray-700 text-white flex items-center justify-center text-base cursor-pointer transition-colors shadow-md border-none shrink-0"
+                className="w-10 h-10 rounded-xl bg-luxury-gold hover:bg-champagne disabled:bg-gray-700 text-charcoal-black flex items-center justify-center text-base cursor-pointer transition-colors shadow-md border-none shrink-0"
               >
                 <IoSend className="rotate-45" />
               </button>
@@ -276,7 +276,7 @@ export default function FloatingActions() {
                 animate={{ opacity: 1, scale: 1, x: 0 }}
                 exit={{ opacity: 0, scale: 0.8, x: 20 }}
                 onClick={handleScrollToTop}
-                className="w-12 h-12 rounded-full bg-charcoal-black/75 hover:bg-charcoal-black backdrop-blur-md border border-white/10 text-white flex items-center justify-center text-xl shadow-lg cursor-pointer transition-all duration-300"
+                className="w-12 h-12 rounded-full bg-[#1A1A1A]/75 hover:bg-[#1A1A1A] backdrop-blur-md border border-luxury-gold/15 text-champagne flex items-center justify-center text-xl shadow-lg cursor-pointer transition-all duration-300"
                 aria-label="Back to Top"
               >
                 <IoArrowUpOutline />
@@ -288,7 +288,7 @@ export default function FloatingActions() {
           <motion.a
             href="tel:8860036008"
             whileHover={{ scale: 1.1, y: -3 }}
-            className="w-12 h-12 rounded-full bg-primary-orange text-white flex items-center justify-center text-xl shadow-xl hover:shadow-primary-orange/20 transition-all duration-300 cursor-pointer"
+            className="w-12 h-12 rounded-full bg-luxury-gold text-charcoal-black flex items-center justify-center text-xl shadow-xl hover:shadow-luxury-gold/20 transition-all duration-300 cursor-pointer"
             aria-label="Phone Call Support"
           >
             <IoCall />

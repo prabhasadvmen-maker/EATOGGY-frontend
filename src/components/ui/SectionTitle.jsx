@@ -94,17 +94,17 @@ export default function SectionTitle({ title, highlightText, subtitle, center = 
     >
       <h2 
         ref={titleRef} 
-        className="text-3xl md:text-5xl font-poppins font-extrabold text-charcoal-black tracking-tight leading-tight mb-4 relative"
+        className="text-3xl md:text-5xl font-poppins font-extrabold text-champagne tracking-tight leading-tight mb-4 relative"
       >
         {title}{' '}
         {highlightText && (
           <span className="relative inline-block">
-            <span className="bg-gradient-to-r from-primary-orange via-orange-400 to-accent-gold bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-luxury-gold via-champagne to-metallic-gold bg-clip-text text-transparent">
               {highlightText}
             </span>
             <span 
               ref={lineRef} 
-              className="absolute bottom-[-6px] left-0 right-0 h-1 bg-gradient-to-r from-primary-orange to-accent-gold origin-left scale-x-0"
+              className="absolute bottom-[-6px] left-0 right-0 h-1 bg-gradient-to-r from-luxury-gold to-champagne origin-left scale-x-0"
             />
           </span>
         )}
@@ -113,7 +113,7 @@ export default function SectionTitle({ title, highlightText, subtitle, center = 
       {subtitle && (
         <motion.p 
           variants={textVariants} 
-          className="text-gray-500 font-manrope text-sm md:text-base max-w-2xl leading-relaxed mt-2"
+          className="text-gray-400 font-manrope text-sm md:text-base max-w-2xl leading-relaxed mt-2"
         >
           {subtitle}
         </motion.p>

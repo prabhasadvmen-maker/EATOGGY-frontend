@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { IoSparkles, IoShieldCheckmark } from 'react-icons/io5';
+import { IoSparkles, IoShieldCheckmark, IoLockClosed, IoTime, IoArrowForward } from 'react-icons/io5';
 import Button from '../ui/Button';
 import Badge from '../ui/Badge';
 
@@ -55,19 +55,7 @@ export default function Hero() {
   }, []);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.to(heroRef.current, {
-        opacity: 0, y: -60, scale: 0.96,
-        scrollTrigger: {
-          trigger: heroRef.current,
-          start: 'bottom 90%',
-          end: 'bottom top',
-          scrub: 1,
-        }
-      });
-    });
-    ScrollTrigger.refresh();
-    return () => ctx.revert();
+    return () => {};
   }, []);
 
   const handleExplorePlans = (e) => {
@@ -83,7 +71,7 @@ export default function Hero() {
     <section
       id="home"
       ref={heroRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-charcoal-black"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0E0E0E]"
     >
 
       {/* ── FULL PAGE VIDEO BACKGROUND ── */}
@@ -94,27 +82,28 @@ export default function Hero() {
           muted
           loop
           playsInline
-          preload="none"
-          className="w-full h-full object-cover hidden sm:block"
+          preload="metadata"
+          poster="/Eatoggy logo.jpeg"
+          className="w-full h-full object-cover"
+          style={{ WebkitPlaysinline: true }}
         >
-          <source src="/Hero%20section%20vedio.mp4" type="video/mp4" />
+          <source src="/Hero section vedio.mp4" type="video/mp4" />
         </video>
-        {/* Mobile fallback — solid dark bg instead of heavy video */}
-        <div className="sm:hidden absolute inset-0 bg-charcoal-black" />
+        <div className="absolute inset-0 bg-[#0E0E0E] -z-10" />
       </div>
 
       {/* Dark overlay - left heavy for text readability */}
-      <div className="absolute inset-0 z-10 bg-gradient-to-r from-charcoal-black/92 via-charcoal-black/65 to-charcoal-black/30" />
+      <div className="absolute inset-0 z-10 bg-gradient-to-r from-[#0E0E0E]/95 via-[#0E0E0E]/70 to-[#0E0E0E]/30" />
 
       {/* Bottom fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-48 z-10 bg-gradient-to-t from-charcoal-black to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-48 z-10 bg-gradient-to-t from-[#0E0E0E] to-transparent" />
 
       {/* Top fade */}
-      <div className="absolute top-0 left-0 right-0 h-32 z-10 bg-gradient-to-b from-charcoal-black/60 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-32 z-10 bg-gradient-to-b from-[#0E0E0E]/60 to-transparent" />
 
-      {/* Orange glow blob */}
-      <div className="absolute top-1/3 left-1/4 w-80 h-80 rounded-full bg-primary-orange/10 blur-[130px] animate-pulse-slow pointer-events-none z-10" />
-      <div className="absolute bottom-1/3 right-1/4 w-96 h-96 rounded-full bg-fresh-green/8 blur-[150px] pointer-events-none z-10" />
+      {/* Glow blobs */}
+      <div className="absolute top-1/3 left-1/4 w-80 h-80 rounded-full bg-luxury-gold/8 blur-[130px] animate-pulse-slow pointer-events-none z-10" />
+      <div className="absolute bottom-1/3 right-1/4 w-96 h-96 rounded-full bg-dark-bronze/10 blur-[150px] pointer-events-none z-10" />
 
       {/* ── CONTENT ── */}
       <div className="relative z-20 max-w-7xl mx-auto px-6 md:px-12 w-full pt-28 pb-20">
@@ -128,8 +117,8 @@ export default function Hero() {
           >
             <Badge
               variant="glow"
-              icon={<IoSparkles className="text-primary-orange animate-pulse" />}
-              className="mb-6 font-poppins font-bold bg-white/5 border border-white/10 text-white py-2 px-5 rounded-full shadow-lg"
+              icon={<IoSparkles className="text-luxury-gold animate-pulse" />}
+              className="mb-6 font-poppins font-bold bg-luxury-gold/10 border border-luxury-gold/20 text-champagne py-2 px-5 rounded-full shadow-lg"
             >
               Now Delivering Across Delhi NCR
             </Badge>
@@ -140,7 +129,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.3 }}
-            className="text-5xl sm:text-6xl md:text-7xl font-extrabold font-poppins text-white leading-[1.05] mb-6"
+            className="text-5xl sm:text-6xl md:text-7xl font-extrabold font-poppins text-champagne leading-[1.05] mb-6"
           >
             <span className="block mb-2">Homestyle &</span>
             <div className="h-[1.1em] relative overflow-hidden inline-block align-bottom min-w-[320px]">
@@ -151,7 +140,7 @@ export default function Hero() {
                   animate={{ y: 0, rotateX: 0, opacity: 1 }}
                   exit={{ y: -50, rotateX: 60, opacity: 0 }}
                   transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1] }}
-                  className="absolute left-0 bg-gradient-to-r from-primary-orange via-orange-400 to-accent-gold bg-clip-text text-transparent"
+                  className="absolute left-0 bg-gradient-to-r from-luxury-gold via-champagne to-metallic-gold bg-clip-text text-transparent"
                 >
                   {words[wordIndex]}
                 </motion.span>
@@ -165,7 +154,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.45 }}
-            className="text-gray-300 text-lg md:text-xl font-manrope max-w-lg mb-10 leading-relaxed"
+            className="text-gray-400 text-lg md:text-xl font-manrope max-w-lg mb-10 leading-relaxed"
           >
             Healthy, hygienic and affordable tiffin subscriptions. Cooked fresh daily & delivered straight to your doorstep across Delhi NCR.
           </motion.p>
@@ -177,14 +166,14 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="flex flex-wrap gap-3 mb-10"
           >
-            <span className="flex items-center gap-1.5 bg-white/5 border border-white/10 rounded-full px-3 py-1.5 text-[11px] font-poppins font-bold text-gray-300">
-              <IoShieldCheckmark className="text-fresh-green" /> FSSAI Certified
+            <span className="flex items-center gap-1.5 bg-luxury-gold/10 border border-luxury-gold/20 rounded-full px-3 py-1.5 text-[11px] font-poppins font-bold text-gray-300">
+              <IoShieldCheckmark className="text-luxury-gold" /> FSSAI Certified
             </span>
-            <span className="flex items-center gap-1.5 bg-white/5 border border-white/10 rounded-full px-3 py-1.5 text-[11px] font-poppins font-bold text-gray-300">
-              🔒 Secure Payments
+            <span className="flex items-center gap-1.5 bg-luxury-gold/10 border border-luxury-gold/20 rounded-full px-3 py-1.5 text-[11px] font-poppins font-bold text-gray-300">
+              <IoLockClosed className="text-luxury-gold" /> Secure Payments
             </span>
-            <span className="flex items-center gap-1.5 bg-white/5 border border-white/10 rounded-full px-3 py-1.5 text-[11px] font-poppins font-bold text-gray-300">
-              ⏰ Delivery by 1 PM
+            <span className="flex items-center gap-1.5 bg-luxury-gold/10 border border-luxury-gold/20 rounded-full px-3 py-1.5 text-[11px] font-poppins font-bold text-gray-300">
+              <IoTime className="text-luxury-gold" /> Delivery by 1 PM
             </span>
           </motion.div>
 
@@ -195,8 +184,9 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.55 }}
             className="flex flex-col sm:flex-row gap-4 mb-14"
           >
-            <Button variant="primary" className="px-10 py-4 text-base" onClick={handleExplorePlans}>
-              Order Now 🍱
+            <Button variant="primary" className="px-10 py-4 text-base flex items-center justify-center gap-2" onClick={handleExplorePlans}>
+              <span>Order Now</span>
+              <IoArrowForward className="text-lg" />
             </Button>
             <Button variant="outline" className="px-10 py-4 text-base text-white border border-white/20 hover:bg-white/5" onClick={handleExplorePlans}>
               Explore Plans
@@ -208,22 +198,22 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.65 }}
-            className="grid grid-cols-3 gap-6 pt-6 border-t border-white/10 max-w-lg"
+            className="grid grid-cols-3 gap-6 pt-6 border-t border-luxury-gold/15 max-w-lg"
           >
             <div className="flex flex-col">
-              <span className="text-2xl sm:text-3xl font-extrabold text-primary-orange font-poppins">
+              <span className="text-2xl sm:text-3xl font-extrabold text-luxury-gold font-poppins">
                 <Counter end={10000} suffix="+" />
               </span>
               <span className="text-xs sm:text-sm text-gray-400 font-manrope mt-1">Meals Delivered</span>
             </div>
             <div className="flex flex-col">
-              <span className="text-2xl sm:text-3xl font-extrabold text-fresh-green font-poppins">
+              <span className="text-2xl sm:text-3xl font-extrabold text-metallic-gold font-poppins">
                 <Counter end={5000} suffix="+" />
               </span>
               <span className="text-xs sm:text-sm text-gray-400 font-manrope mt-1">Happy Customers</span>
             </div>
             <div className="flex flex-col">
-              <span className="text-2xl sm:text-3xl font-extrabold text-accent-gold font-poppins">
+              <span className="text-2xl sm:text-3xl font-extrabold text-champagne font-poppins">
                 <Counter end={4.9} decimals={1} suffix="★" />
               </span>
               <span className="text-xs sm:text-sm text-gray-400 font-manrope mt-1">Google Rating</span>
@@ -244,9 +234,9 @@ export default function Hero() {
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 1.5, repeat: Infinity }}
-          className="w-5 h-8 rounded-full border-2 border-white/20 flex items-start justify-center pt-1.5"
+          className="w-5 h-8 rounded-full border-2 border-luxury-gold/20 flex items-start justify-center pt-1.5"
         >
-          <div className="w-1 h-2 rounded-full bg-primary-orange" />
+          <div className="w-1 h-2 rounded-full bg-luxury-gold" />
         </motion.div>
       </motion.div>
 

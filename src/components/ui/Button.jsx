@@ -5,10 +5,10 @@ export default function Button({ children, variant = 'primary', className = '', 
   const baseStyle = "px-6 py-3 font-poppins font-semibold rounded-2xl transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer outline-none focus:ring-2 focus:ring-primary-orange/50 focus:ring-offset-2";
   
   const variants = {
-    primary: "bg-gradient-to-r from-primary-orange to-red-500 text-white shadow-lg shadow-primary-orange/20 hover:shadow-primary-orange/30 border-b-3 border-orange-700",
-    outline: "border-2 border-primary-orange text-primary-orange hover:bg-primary-orange/5",
-    ghost: "text-charcoal-black hover:bg-black/5 hover:text-primary-orange",
-    green: "bg-gradient-to-r from-fresh-green to-emerald-600 text-white shadow-lg shadow-fresh-green/20 hover:shadow-fresh-green/30 border-b-3 border-emerald-800"
+    primary: "bg-gradient-to-r from-bronze-gold to-luxury-gold text-charcoal-black shadow-lg shadow-luxury-gold/20 hover:shadow-luxury-gold/30 border-b-3 border-dark-bronze font-extrabold",
+    outline: "border-2 border-luxury-gold text-luxury-gold hover:bg-luxury-gold/10",
+    ghost: "text-champagne hover:bg-white/5 hover:text-luxury-gold",
+    green: "bg-gradient-to-r from-dark-bronze to-bronze-gold text-champagne shadow-lg shadow-dark-bronze/30 hover:shadow-bronze-gold/30 border-b-3 border-dark-bronze font-extrabold"
   };
 
   return (

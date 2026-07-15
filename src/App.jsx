@@ -15,7 +15,7 @@ import Contact from './components/sections/Contact';
 import Footer from './components/sections/Footer';
 import FloatingActions from './components/ui/FloatingActions';
 import AuthPage from './components/pages/AuthPage';
-import { IoClose, IoSparkles } from 'react-icons/io5';
+import { IoClose, IoSparkles, IoGift, IoCheckmarkDone, IoTrendingUp } from 'react-icons/io5';
 
 // ── First Order Discount Banner ──
 function DiscountBanner() {
@@ -27,11 +27,11 @@ function DiscountBanner() {
       animate={{ y: 0, opacity: 1 }}
       exit={{ y: -60, opacity: 0 }}
       transition={{ duration: 0.4, ease: 'easeOut' }}
-      className="w-full bg-gradient-to-r from-primary-orange via-orange-500 to-accent-gold text-white text-center py-2.5 px-4 text-xs font-poppins font-bold tracking-wide relative z-[60] flex items-center justify-center gap-2"
+      className="w-full bg-gradient-to-r from-dark-bronze via-bronze-gold to-luxury-gold text-charcoal-black text-center py-2.5 px-4 text-xs font-poppins font-bold tracking-wide relative z-[60] flex items-center justify-center gap-2"
     >
       <IoSparkles className="text-white animate-pulse shrink-0" />
       <span>
-        🎉 First Order Special — Use code <span className="bg-white/20 px-2 py-0.5 rounded-md mx-1 font-extrabold tracking-widest">EATOGGY10</span> for 10% OFF your first subscription!
+        <IoGift className="inline mr-1" /> First Order Special — Use code <span className="bg-white/20 px-2 py-0.5 rounded-md mx-1 font-extrabold tracking-widest">EATOGGY10</span> for 10% OFF your first subscription!
       </span>
       <button
         onClick={() => setVisible(false)}
@@ -58,20 +58,20 @@ function LiveTicker() {
   }, []);
 
   return (
-    <div className="w-full bg-charcoal-black/95 border-b border-white/5 py-2 px-4 flex items-center justify-center gap-6 text-[11px] font-manrope font-bold text-gray-300 z-[59] relative">
+    <div className="w-full bg-charcoal-black border-b border-luxury-gold/10 py-2 px-4 flex items-center justify-center gap-6 text-[11px] font-manrope font-bold text-gray-400 z-[59] relative">
       <span className="flex items-center gap-1.5">
-        <span className="w-2 h-2 rounded-full bg-fresh-green animate-pulse inline-block" />
-        <span className="text-fresh-green font-extrabold">{orders.toLocaleString()}+</span> meals delivered today
+        <span className="w-2 h-2 rounded-full bg-luxury-gold animate-pulse inline-block" />
+        <span className="text-luxury-gold font-extrabold">{orders.toLocaleString()}+</span> meals delivered today
       </span>
       <span className="text-white/20">|</span>
       <span className="flex items-center gap-1.5">
-        <span className="w-2 h-2 rounded-full bg-primary-orange animate-pulse inline-block" />
-        <span className="text-primary-orange font-extrabold">{customers.toLocaleString()}+</span> happy customers
+        <span className="w-2 h-2 rounded-full bg-metallic-gold animate-pulse inline-block" />
+        <span className="text-metallic-gold font-extrabold">{customers.toLocaleString()}+</span> happy customers
       </span>
       <span className="text-white/20 hidden sm:inline">|</span>
       <span className="hidden sm:flex items-center gap-1.5">
-        <span className="w-2 h-2 rounded-full bg-accent-gold animate-pulse inline-block" />
-        Delivery by <span className="text-accent-gold font-extrabold ml-1">1:00 PM</span>
+        <span className="w-2 h-2 rounded-full bg-champagne animate-pulse inline-block" />
+        Delivery by <span className="text-champagne font-extrabold ml-1">1:00 PM</span>
       </span>
     </div>
   );
@@ -104,10 +104,10 @@ function StickyOrderButton() {
           exit={{ y: 80, opacity: 0 }}
           transition={{ type: 'spring', stiffness: 300, damping: 25 }}
           onClick={handleClick}
-          className="fixed bottom-24 left-1/2 -translate-x-1/2 z-40 bg-gradient-to-r from-primary-orange to-orange-600 text-white font-poppins font-extrabold text-sm px-8 py-3.5 rounded-full shadow-2xl shadow-primary-orange/30 border border-white/20 cursor-pointer hover:scale-105 transition-transform duration-200 flex items-center gap-2 whitespace-nowrap"
+          className="fixed bottom-24 left-4 md:left-1/2 md:-translate-x-1/2 z-40 bg-gradient-to-r from-bronze-gold to-luxury-gold text-charcoal-black font-poppins font-extrabold text-sm px-6 md:px-8 py-3.5 rounded-full shadow-2xl shadow-luxury-gold/30 border border-champagne/20 cursor-pointer hover:scale-105 transition-transform duration-200 flex items-center gap-2 whitespace-nowrap"
           aria-label="Order Now"
         >
-          🍱 Order Now — Starting ₹115/meal
+          <IoTrendingUp className="text-lg" /> Order Now — Starting ₹115/meal
         </motion.button>
       )}
     </AnimatePresence>
@@ -157,31 +157,58 @@ function App() {
           <motion.div
             key="loader"
             initial={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.6, ease: 'easeInOut' }}
-            className="fixed inset-0 bg-charcoal-black z-[9999] flex flex-col items-center justify-center"
+            exit={{ opacity: 0, scale: 1.05 }}
+            transition={{ duration: 0.5, ease: 'easeInOut' }}
+            className="fixed inset-0 bg-[#0E0E0E] z-[9999] flex flex-col items-center justify-center gap-6"
           >
-            <motion.div
-              initial={{ scale: 0.85, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.8, ease: 'easeOut' }}
-              className="mb-8"
-            >
-              <img 
-                src="/EATOGGY  logo.png" 
-                alt="Eatoggy Logo" 
-                className="h-16 md:h-20 w-auto object-contain drop-shadow-[0_0_20px_rgba(255,107,53,0.35)]"
+            {/* Outer rotating ring */}
+            <div className="relative flex items-center justify-center">
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
+                className="absolute w-28 h-28 rounded-full border-2 border-transparent border-t-luxury-gold border-r-champagne"
               />
-            </motion.div>
-            <div className="w-48 h-2 bg-white/10 rounded-full overflow-hidden relative border border-white/5 shadow-inner">
-              <motion.div 
-                initial={{ left: '-100%' }}
-                animate={{ left: '100%' }}
-                transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
-                className="absolute top-0 bottom-0 w-1/3 bg-gradient-to-r from-primary-orange to-fresh-green rounded-full shadow-[0_0_8px_#FF6B35]"
+              <motion.div
+                animate={{ rotate: -360 }}
+                transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
+                className="absolute w-36 h-36 rounded-full border border-transparent border-b-metallic-gold/30"
+              />
+              {/* Circle logo */}
+              <motion.div
+                initial={{ scale: 0.7, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 0.6, ease: 'backOut' }}
+                className="w-20 h-20 rounded-full overflow-hidden border-2 border-luxury-gold/60 shadow-[0_0_30px_rgba(215,169,104,0.4)] bg-[#1A1A1A]"
+              >
+                <img
+                  src="/Eatoggy logo.jpeg"
+                  alt="Eatoggy"
+                  className="w-full h-full object-cover"
+                />
+              </motion.div>
+            </div>
+
+            {/* Brand name */}
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.5 }}
+              className="font-poppins font-extrabold text-lg text-champagne tracking-widest uppercase"
+            >
+              Eat<span className="text-luxury-gold">oggy</span>
+            </motion.p>
+
+            {/* Progress bar */}
+            <div className="w-40 h-1 bg-white/10 rounded-full overflow-hidden">
+              <motion.div
+                initial={{ x: '-100%' }}
+                animate={{ x: '100%' }}
+                transition={{ duration: 1.2, repeat: Infinity, ease: 'easeInOut' }}
+                className="w-1/2 h-full bg-gradient-to-r from-dark-bronze via-luxury-gold to-champagne rounded-full"
               />
             </div>
-            <p className="font-poppins text-[10px] font-bold text-gray-400 mt-4 tracking-widest uppercase select-none animate-pulse">
+
+            <p className="font-manrope text-[10px] font-bold text-gray-500 tracking-widest uppercase">
               Serving Freshness
             </p>
           </motion.div>
@@ -191,7 +218,7 @@ function App() {
       {view === 'login' ? (
         <AuthPage />
       ) : (
-        <div className="bg-warm-white text-charcoal-black selection:bg-primary-orange selection:text-white min-h-screen">
+        <div className="bg-[#0E0E0E] text-champagne selection:bg-luxury-gold selection:text-charcoal-black min-h-screen">
           {/* Top Conversion Bars */}
           <DiscountBanner />
           <LiveTicker />

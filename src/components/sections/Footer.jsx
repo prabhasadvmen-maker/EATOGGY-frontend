@@ -48,27 +48,27 @@ export default function Footer() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.15 }}
       transition={{ duration: 0.8, ease: 'easeOut' }}
-      className="bg-charcoal-black text-gray-300 pt-20 pb-10 border-t border-white/10 relative overflow-hidden text-left"
+      className="bg-[#121212] text-gray-300 pt-20 pb-10 border-t border-luxury-gold/10 relative overflow-hidden text-left"
     >
       {/* Background blobs */}
-      <div className="absolute bottom-0 left-0 w-80 h-80 rounded-full bg-primary-orange/5 blur-[100px] pointer-events-none" />
-      <div className="absolute top-0 right-0 w-80 h-80 rounded-full bg-fresh-green/5 blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-80 h-80 rounded-full bg-luxury-gold/5 blur-[100px] pointer-events-none" />
+      <div className="absolute top-0 right-0 w-80 h-80 rounded-full bg-dark-bronze/5 blur-[100px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         
         {/* Top Branding Section */}
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-12 border-b border-white/5">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-12 border-b border-luxury-gold/10">
           <div className="flex flex-col gap-3">
             <a href="#home" onClick={(e) => handleScrollTo(e, '#home')} className="inline-block">
-              <div className="w-12 h-12 rounded-full border-2 border-primary-orange/60 overflow-hidden shadow-md flex items-center justify-center bg-white p-0.5 shrink-0">
+              <div className="w-12 h-12 rounded-full border-2 border-luxury-gold/60 overflow-hidden shadow-md flex items-center justify-center bg-[#1A1A1A] p-0.5 shrink-0">
                 <img 
-                  src="/EATOGGY  logo.png" 
+                  src="/Eatoggy logo.jpeg" 
                   alt="Eatoggy Logo" 
                   className="w-full h-full object-cover rounded-full"
                 />
               </div>
             </a>
-            <p className="font-poppins text-sm text-gray-400 font-semibold tracking-wide">
+            <p className="font-manrope text-sm text-gray-400 font-semibold tracking-wide">
               Ghar Jaisa Khana, Aapke Darwaze Tak
             </p>
           </div>
@@ -91,7 +91,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.15, y: -3, transition: { type: "spring", stiffness: 300, damping: 20 } }}
-                  className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 text-gray-400 hover:text-primary-orange hover:border-primary-orange flex items-center justify-center text-lg transition-colors duration-200"
+                  className="w-10 h-10 rounded-xl bg-luxury-gold/10 border border-luxury-gold/15 text-gray-400 hover:text-luxury-gold hover:border-luxury-gold flex items-center justify-center text-lg transition-colors duration-200"
                   aria-label={social.label}
                 >
                   {social.icon}
@@ -107,32 +107,32 @@ export default function Footer() {
             </h4>
             <ul className="space-y-4 font-manrope text-sm font-semibold">
               <li>
-                <a href="#home" onClick={(e) => handleScrollTo(e, '#home')} className="hover:text-primary-orange transition-colors">
+                <a href="#home" onClick={(e) => handleScrollTo(e, '#home')} className="hover:text-luxury-gold transition-colors">
                   Home
                 </a>
               </li>
               <li>
-                <a href="#plans" onClick={(e) => handleScrollTo(e, '#plans')} className="hover:text-primary-orange transition-colors">
+                <a href="#plans" onClick={(e) => handleScrollTo(e, '#plans')} className="hover:text-luxury-gold transition-colors">
                   Plans
                 </a>
               </li>
               <li>
-                <a href="#menu" onClick={(e) => handleScrollTo(e, '#menu')} className="hover:text-primary-orange transition-colors">
+                <a href="#menu" onClick={(e) => handleScrollTo(e, '#menu')} className="hover:text-luxury-gold transition-colors">
                   Today's Menu
                 </a>
               </li>
               <li>
-                <a href="#how-it-works" onClick={(e) => handleScrollTo(e, '#how-it-works')} className="hover:text-primary-orange transition-colors">
+                <a href="#how-it-works" onClick={(e) => handleScrollTo(e, '#how-it-works')} className="hover:text-luxury-gold transition-colors">
                   How it Works
                 </a>
               </li>
               <li>
-                <a href="#reviews" onClick={(e) => handleScrollTo(e, '#reviews')} className="hover:text-primary-orange transition-colors">
+                <a href="#reviews" onClick={(e) => handleScrollTo(e, '#reviews')} className="hover:text-luxury-gold transition-colors">
                   Reviews
                 </a>
               </li>
               <li>
-                <a href="#contact" onClick={(e) => handleScrollTo(e, '#contact')} className="hover:text-primary-orange transition-colors">
+                <a href="#contact" onClick={(e) => handleScrollTo(e, '#contact')} className="hover:text-luxury-gold transition-colors">
                   Contact
                 </a>
               </li>
@@ -147,13 +147,13 @@ export default function Footer() {
             <ul className="space-y-4 font-manrope text-sm text-gray-400 leading-relaxed">
               <li>
                 <span className="font-bold text-white block mb-0.5">Phone:</span>
-                <a href="tel:8860036008" className="hover:text-primary-orange transition-colors">
+                <a href="tel:8860036008" className="hover:text-luxury-gold transition-colors">
                   8860036008
                 </a>
               </li>
               <li>
                 <span className="font-bold text-white block mb-0.5">Email:</span>
-                <a href="mailto:info@eatoggy.com" className="hover:text-primary-orange transition-colors">
+                <a href="mailto:info@eatoggy.com" className="hover:text-luxury-gold transition-colors">
                   info@eatoggy.com
                 </a>
               </li>
@@ -185,11 +185,11 @@ export default function Footer() {
                     placeholder="Your Email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full bg-white/5 border border-white/10 rounded-2xl px-4 py-3 text-xs font-manrope outline-none text-white focus:border-primary-orange transition-all duration-300 placeholder-gray-500 h-11"
+                    className="w-full bg-luxury-gold/10 border border-luxury-gold/15 rounded-2xl px-4 py-3 text-xs font-manrope outline-none text-champagne focus:border-luxury-gold transition-all duration-300 placeholder-gray-600 h-11"
                   />
                   <button
                     type="submit"
-                    className="w-full bg-primary-orange hover:bg-orange-600 text-white font-poppins font-bold text-xs py-3 rounded-2xl transition-colors uppercase tracking-wider cursor-pointer h-11 flex items-center justify-center"
+                    className="w-full bg-gradient-to-r from-bronze-gold to-luxury-gold hover:from-luxury-gold hover:to-champagne text-charcoal-black font-poppins font-bold text-xs py-3 rounded-2xl transition-all uppercase tracking-wider cursor-pointer h-11 flex items-center justify-center"
                   >
                     Subscribe
                   </button>
@@ -211,27 +211,27 @@ export default function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="h-px bg-white/5 w-full my-8" />
+        <div className="h-px bg-luxury-gold/10 w-full my-8" />
 
         {/* Trust Badges Row */}
-        <div className="flex flex-wrap items-center justify-center gap-4 py-6 border-b border-white/5">
-          <div className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-xs font-poppins font-bold text-gray-300">
-            <IoShieldCheckmark className="text-fresh-green text-base" />
+        <div className="flex flex-wrap items-center justify-center gap-4 py-6 border-b border-luxury-gold/10">
+          <div className="flex items-center gap-2 bg-luxury-gold/10 border border-luxury-gold/15 rounded-xl px-4 py-2.5 text-xs font-poppins font-bold text-champagne">
+            <IoShieldCheckmark className="text-luxury-gold text-base" />
             FSSAI Certified
           </div>
-          <div className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-xs font-poppins font-bold text-gray-300">
-            <IoLeaf className="text-fresh-green text-base" />
+          <div className="flex items-center gap-2 bg-luxury-gold/10 border border-luxury-gold/15 rounded-xl px-4 py-2.5 text-xs font-poppins font-bold text-champagne">
+            <IoLeaf className="text-luxury-gold text-base" />
             100% Hygienic Kitchen
           </div>
-          <div className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-xs font-poppins font-bold text-gray-300">
-            <IoLockClosed className="text-accent-gold text-base" />
+          <div className="flex items-center gap-2 bg-luxury-gold/10 border border-luxury-gold/15 rounded-xl px-4 py-2.5 text-xs font-poppins font-bold text-champagne">
+            <IoLockClosed className="text-luxury-gold text-base" />
             Secure Payments
           </div>
-          <div className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-xs font-poppins font-bold text-gray-300">
-            <IoCard className="text-primary-orange text-base" />
+          <div className="flex items-center gap-2 bg-luxury-gold/10 border border-luxury-gold/15 rounded-xl px-4 py-2.5 text-xs font-poppins font-bold text-champagne">
+            <IoCard className="text-luxury-gold text-base" />
             UPI · Cards · Wallets
           </div>
-          <div className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-xs font-poppins font-bold text-gray-300">
+          <div className="flex items-center gap-2 bg-luxury-gold/10 border border-luxury-gold/15 rounded-xl px-4 py-2.5 text-xs font-poppins font-bold text-champagne">
             <span className="text-base">🔒</span>
             SSL Secured
           </div>
@@ -250,13 +250,13 @@ export default function Footer() {
         </div>
 
         {/* Developer Credit */}
-        <div className="mt-4 pt-4 border-t border-white/5 text-center text-[11px] text-gray-600 font-manrope">
+        <div className="mt-4 pt-4 border-t border-luxury-gold/10 text-center text-[11px] text-gray-600 font-manrope">
           Designed & Developed by{' '}
           <a
             href="https://advmen.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-primary-orange hover:text-orange-400 font-bold transition-colors"
+            className="text-luxury-gold hover:text-champagne font-bold transition-colors"
           >
             Advmen Technology Pvt. Ltd.
           </a>

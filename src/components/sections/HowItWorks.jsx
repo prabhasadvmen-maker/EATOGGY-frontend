@@ -41,27 +41,17 @@ export default function HowItWorks() {
     visible: (index) => ({
       opacity: 1,
       y: 0,
-      transition: {
-        type: 'spring',
-        stiffness: 100,
-        damping: 15,
-        delay: index * 0.15
-      }
+      transition: { type: 'spring', stiffness: 100, damping: 15, delay: index * 0.15 }
     })
   };
 
   return (
-    <section 
-      id="how-it-works"
-      className="py-24 bg-warm-white relative overflow-hidden"
-    >
-      {/* Background blobs */}
-      <div className="absolute top-1/4 right-0 w-80 h-80 rounded-full bg-primary-orange/5 blur-[100px] pointer-events-none" />
-      <div className="absolute bottom-1/4 left-0 w-80 h-80 rounded-full bg-fresh-green/5 blur-[100px] pointer-events-none" />
+    <section id="how-it-works" className="py-24 bg-[#0E0E0E] relative overflow-hidden">
+      <div className="absolute top-1/4 right-0 w-80 h-80 rounded-full bg-luxury-gold/5 blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-1/4 left-0 w-80 h-80 rounded-full bg-dark-bronze/8 blur-[100px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         
-        {/* Section Header */}
         <SectionTitle 
           title="How Eatoggy"
           highlightText="Works"
@@ -69,8 +59,7 @@ export default function HowItWorks() {
           center={true}
         />
 
-        {/* Steps Grid Container */}
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {steps.map((step, idx) => (
             <motion.div
               key={step.num}
@@ -80,36 +69,31 @@ export default function HowItWorks() {
               viewport={{ once: true, amount: 0.15 }}
               variants={cardVariants}
               whileHover={{ 
-                scale: 1.03, 
-                y: -6,
+                scale: 1.05, 
+                y: -8,
                 transition: { type: "spring", stiffness: 300, damping: 18 }
               }}
-              className="neom-card-light rounded-3xl border border-white/60 p-8 shadow-sm flex flex-col justify-between items-start text-left relative overflow-hidden hover:shadow-md transition-shadow duration-300"
+              className="neom-card rounded-3xl p-8 flex flex-col justify-between items-start text-left relative overflow-hidden group"
             >
-              {/* Step indicator in corner */}
               <div className="w-full flex items-center justify-between mb-8">
-                {/* Icon box with soft gradient */}
-                <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-primary-orange to-red-500 text-white flex items-center justify-center text-xl shadow-md">
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-dark-bronze to-luxury-gold text-charcoal-black flex items-center justify-center text-2xl shadow-lg group-hover:scale-110 transition-transform duration-300">
                   {step.icon}
                 </div>
-                {/* Step Index Circle Badge */}
-                <div className="w-8 h-8 rounded-full bg-primary-orange/10 text-primary-orange font-poppins font-black text-xs flex items-center justify-center select-none shadow-inner border border-primary-orange/20">
+                <div className="w-10 h-10 rounded-full bg-luxury-gold/15 text-luxury-gold font-poppins font-black text-sm flex items-center justify-center select-none shadow-md border border-luxury-gold/20">
                   {step.num}
                 </div>
               </div>
 
-              {/* Title & Description */}
-              <div className="space-y-3">
-                <h3 className="text-lg font-bold font-poppins text-charcoal-black">
+              <div className="space-y-3 flex-grow">
+                <h3 className="text-lg font-bold font-poppins text-champagne leading-tight">
                   {step.title}
                 </h3>
-                <p className="font-manrope text-xs sm:text-sm text-gray-500 leading-relaxed">
+                <p className="font-manrope text-sm text-gray-400 leading-relaxed">
                   {step.desc}
                 </p>
               </div>
 
-              {/* Decorative side accent lines */}
-              <div className="absolute top-0 bottom-0 left-0 w-1 bg-gradient-to-b from-primary-orange to-red-500 opacity-0 hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute top-0 bottom-0 left-0 w-1 bg-gradient-to-b from-dark-bronze to-luxury-gold opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </motion.div>
           ))}
         </div>

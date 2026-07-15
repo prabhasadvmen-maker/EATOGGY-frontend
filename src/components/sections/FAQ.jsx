@@ -10,11 +10,11 @@ function AccordionItem({ faq, isOpen, toggleOpen, innerRef }) {
   return (
     <div 
       ref={innerRef}
-      className="neom-card-light overflow-hidden mb-5 border border-white/60 hover:shadow-lg transition-shadow duration-300"
+      className="neom-card-light overflow-hidden mb-5 border border-luxury-gold/15 hover:shadow-lg transition-shadow duration-300 bg-[#1A1A1A]"
     >
       <button 
         onClick={toggleOpen}
-        className="w-full flex items-center justify-between p-6 font-poppins font-extrabold text-left text-charcoal-black hover:text-primary-orange transition-all duration-300 border-l-4 border-transparent hover:border-primary-orange cursor-pointer focus:outline-none"
+        className="w-full flex items-center justify-between p-6 font-poppins font-extrabold text-left text-champagne hover:text-luxury-gold transition-all duration-300 border-l-4 border-transparent hover:border-luxury-gold cursor-pointer focus:outline-none"
       >
         <span className="text-sm md:text-base leading-tight pr-4">{faq.question}</span>
         
@@ -22,7 +22,7 @@ function AccordionItem({ faq, isOpen, toggleOpen, innerRef }) {
         <motion.div
           animate={{ rotate: isOpen ? 45 : 0 }}
           transition={{ duration: 0.3 }}
-          className={`text-2xl shrink-0 ${isOpen ? 'text-primary-orange' : 'text-gray-400'}`}
+          className={`text-2xl shrink-0 ${isOpen ? 'text-luxury-gold' : 'text-gray-500'}`}
         >
           <HiPlus />
         </motion.div>
@@ -37,7 +37,7 @@ function AccordionItem({ faq, isOpen, toggleOpen, innerRef }) {
             transition={{ duration: 0.3, ease: 'easeInOut' }}
             className="overflow-hidden"
           >
-            <div className="p-6 pt-0 border-t border-gray-100/50 text-xs md:text-sm font-manrope text-gray-600 leading-relaxed bg-white/10">
+            <div className="p-6 pt-0 border-t border-luxury-gold/10 text-xs md:text-sm font-manrope text-gray-400 leading-relaxed bg-[#121212]">
               {faq.answer}
             </div>
           </motion.div>
@@ -82,10 +82,10 @@ export default function FAQ() {
   };
 
   return (
-    <section id="faq" className="py-24 bg-warm-white relative overflow-hidden">
+    <section id="faq" className="py-24 bg-[#0E0E0E] relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute top-1/4 right-0 w-80 h-80 rounded-full bg-fresh-green/5 blur-[100px] pointer-events-none" />
-      <div className="absolute bottom-1/4 left-0 w-80 h-80 rounded-full bg-primary-orange/5 blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/4 right-0 w-80 h-80 rounded-full bg-luxury-gold/5 blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-1/4 left-0 w-80 h-80 rounded-full bg-dark-bronze/5 blur-[100px] pointer-events-none" />
 
       <div className="max-w-4xl mx-auto px-6 relative z-10">
         
